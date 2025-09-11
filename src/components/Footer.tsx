@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
     >
       <Container maxWidth="lg">
         <Typography variant="body1" align="center">
-          © {new Date().getFullYear()} Trinitee. All rights reserved.
+          © {new Date().getFullYear()} Trinitee Website. All rights reserved.
         </Typography>
       </Container>
     </Box>
