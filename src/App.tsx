@@ -1,20 +1,16 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { Container, Box } from '@mui/material'
+import { Box } from '@mui/material'
 import Header from './components/Header'
-import Footer from './components/Footer'
 import Home from './pages/Home'
 
 const App: React.FC = () => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
       <Header />
-      <Container component="main" sx={{ flex: 1, py: 3 }}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Container>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </Box>
   )
 }
