@@ -1,5 +1,6 @@
 import React from 'react'
 import { AppBar, Toolbar, Typography, Button, Box, styled } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 const StyledAppBar = styled(AppBar)(() => ({
   background: 'transparent',
@@ -98,35 +99,52 @@ const Header: React.FC = () => {
       <StyledToolbar>
         <Typography 
           variant="h2" 
-          component="div" 
+          component={Link}
+          to="/"
           sx={{ 
             fontSize: { xs: '20px', sm: '22px', md: '24px', lg: '26px', xl: '28px' },
             fontFamily: 'Montserrat',
             color: 'white',
-            fontWeight: 'normal'
+            fontWeight: 'normal',
+            textDecoration: 'none',
+            '&:hover': {
+              opacity: 0.8,
+            }
           }}
         >
           Home
         </Typography>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
-          <NavButton href="/tap-method">
-            TAP Method
-          </NavButton>
-          <NavButton href="/about-us">
-            About Us
-          </NavButton>
-          <NavButton href="/services">
-            Services
-          </NavButton>
-          <NavButton href="/insights">
-            Insights
-          </NavButton>
-          <NavButton href="/contact">
-            Contact
-          </NavButton>
-          <BookSessionButton href="/book-session">
-            Book Discovery Session
-          </BookSessionButton>
+          <Link to="/tap-method" style={{ textDecoration: 'none' }}>
+            <NavButton>
+              TAP Method
+            </NavButton>
+          </Link>
+          <Link to="/about-us" style={{ textDecoration: 'none' }}>
+            <NavButton>
+              About Us
+            </NavButton>
+          </Link>
+          <Link to="/services" style={{ textDecoration: 'none' }}>
+            <NavButton>
+              Services
+            </NavButton>
+          </Link>
+          <Link to="/insights" style={{ textDecoration: 'none' }}>
+            <NavButton>
+              Insights
+            </NavButton>
+          </Link>
+          <Link to="/contact" style={{ textDecoration: 'none' }}>
+            <NavButton>
+              Contact
+            </NavButton>
+          </Link>
+          <Link to="/book-session" style={{ textDecoration: 'none' }}>
+            <BookSessionButton>
+              Book Discovery Session
+            </BookSessionButton>
+          </Link>
         </Box>
       </StyledToolbar>
     </StyledAppBar>
