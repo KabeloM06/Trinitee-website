@@ -1,26 +1,23 @@
 import React from 'react'
-import { Box, Typography, Container } from '@mui/material'
+import {
+  FooterContainer,
+  FooterContent,
+  FooterText
+} from './styled/FooterStyles'
+import { footerContent, handleFooterInteraction } from '../data/footerData'
 
 const Footer: React.FC = () => {
   return (
-    <Box
+    <FooterContainer 
       component="footer"
-      sx={{
-        py: 3,
-        px: 2,
-        mt: 'auto',
-        backgroundColor: (theme) =>
-          theme.palette.mode === 'light'
-            ? theme.palette.grey[200]
-            : theme.palette.grey[800],
-      }}
+      onClick={handleFooterInteraction}
     >
-      <Container maxWidth="lg">
-        <Typography variant="body1" align="center">
-          © {new Date().getFullYear()} Trinitee Website. All rights reserved.
-        </Typography>
-      </Container>
-    </Box>
+      <FooterContent>
+        <FooterText variant="body1" align="center">
+          {footerContent.copyrightText}
+        </FooterText>
+      </FooterContent>
+    </FooterContainer>
   )
 }
 
