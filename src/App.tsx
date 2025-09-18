@@ -5,15 +5,71 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import AboutUs from './pages/AboutUs'
 import Tap from './pages/Tap'
+import Services from './pages/Services'
+import Insights from './pages/Insights'
+import Contact from './pages/Contact'
+import BookSession from './pages/BookSession'
+import ScrollPage from './components/ScrollPage'
 
 const App: React.FC = () => {
   return (
-    <Box sx={{ position: 'relative', minHeight: '100vh', overflow: 'hidden' }}>
-      <Header />
+    <Box sx={{ 
+      position: 'relative', 
+      minHeight: '100vh',
+      /* Hide scrollbar */
+      '&::-webkit-scrollbar': {
+        display: 'none'
+      },
+      msOverflowStyle: 'none',
+      scrollbarWidth: 'none'
+    }}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tap-method" element={<Tap />} />
-        <Route path="/about-us" element={<AboutUs />} />
+        {/* Main scroll experience */}
+        <Route path="/" element={<ScrollPage />} />
+        
+        {/* Fallback individual page routes */}
+        <Route path="/home" element={
+          <Box>
+            <Header />
+            <Home />
+          </Box>
+        } />
+        <Route path="/tap-method" element={
+          <Box>
+            <Header />
+            <Tap />
+          </Box>
+        } />
+        <Route path="/about-us" element={
+          <Box>
+            <Header />
+            <AboutUs />
+          </Box>
+        } />
+        <Route path="/services" element={
+          <Box>
+            <Header />
+            <Services />
+          </Box>
+        } />
+        <Route path="/insights" element={
+          <Box>
+            <Header />
+            <Insights />
+          </Box>
+        } />
+        <Route path="/contact" element={
+          <Box>
+            <Header />
+            <Contact />
+          </Box>
+        } />
+        <Route path="/book-session" element={
+          <Box>
+            <Header />
+            <BookSession />
+          </Box>
+        } />
       </Routes>
     </Box>
   )
