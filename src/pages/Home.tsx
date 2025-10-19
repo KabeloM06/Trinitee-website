@@ -583,7 +583,7 @@ const Home: React.FC = () => {
       </Box>
 
       {/* TAP Section */}
-      <Box id="tap" sx={{ py: { xs: 8, md: 12 }, bgcolor: '#f8fafc' }}>
+      <Box id="methodology" sx={{ py: { xs: 8, md: 12 }, bgcolor: '#f8fafc' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
             <Typography

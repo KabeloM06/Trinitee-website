@@ -52,7 +52,7 @@ const Services: React.FC = () => {
     { label: 'Home', href: '/' },
     { label: 'About', href: '/#about' },
     { label: 'Services', href: '/services' },
-    { label: 'TAP Method', href: '/#tap' },
+    { label: 'TAP Method', href: '/tap-method' },
     { label: 'Results', href: '/#results' },
     { label: 'Contact', href: '/#contact' },
   ]
