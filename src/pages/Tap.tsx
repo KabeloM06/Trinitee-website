@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   Box,
@@ -6,61 +6,16 @@ import {
   Typography,
   Grid,
   Button,
-  useMediaQuery,
-  useTheme,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
 } from '@mui/material'
 import {
   Psychology,
-  Menu as MenuIcon,
-  Close as CloseIcon,
   LightbulbOutlined,
   TrendingUpOutlined,
 } from '@mui/icons-material'
+import Header from '../components/Header'
 
 const Tap: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const navigate = useNavigate()
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
-    { label: 'Services', href: '/services' },
-    { label: 'TAP Method', href: '/tap-method' },
-    { label: 'Results', href: '/#results' },
-    { label: 'Contact', href: '/#contact' },
-  ]
-
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('/#')) {
-      navigate('/')
-      setTimeout(() => {
-        const element = document.querySelector(href.substring(1))
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        }
-      }, 100)
-    } else {
-      navigate(href)
-    }
-    setMobileMenuOpen(false)
-  }
 
   const tapPhases = [
     {
@@ -113,135 +68,8 @@ const Tap: React.FC = () => {
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: '#f8fafc' }}>
-      {/* Navigation */}
-      <Box
-        component="nav"
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1100,
-          bgcolor: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(10px)',
-          boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.1)' : '0 1px 3px rgba(0,0,0,0.05)',
-          transition: 'all 0.3s ease',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, cursor: 'pointer' }} onClick={() => navigate('/')}>
-              <Box
-                component="img"
-                src="/images/logo.png"
-                alt="Trinitee Logo"
-                sx={{
-                  height: 50,
-                  width: 'auto',
-                  objectFit: 'contain',
-                }}
-              />
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 700,
-                  color: '#1e293b',
-                  transition: 'color 0.3s ease',
-                }}
-              >
-                Trinitee
-              </Typography>
-            </Box>
-
-            {/* Desktop Menu */}
-            {!isMobile && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                {navItems.map((item) => (
-                  <Typography
-                    key={item.label}
-                    onClick={() => handleNavClick(item.href)}
-                    sx={{
-                      color: '#475569',
-                      textDecoration: 'none',
-                      fontWeight: item.href === '/tap-method' ? 700 : 500,
-                      cursor: 'pointer',
-                      transition: 'color 0.2s ease',
-                      borderBottom: item.href === '/tap-method' ? `2px solid #22d3ee` : 'none',
-                      '&:hover': { color: '#22d3ee' },
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                ))}
-                <Button
-                  variant="contained"
-                  onClick={() => navigate('/book-session')}
-                  sx={{
-                    bgcolor: '#22d3ee',
-                    color: '#1e293b',
-                    borderRadius: 50,
-                    px: 3,
-                    py: 1,
-                    fontWeight: 600,
-                    textTransform: 'none',
-                    '&:hover': {
-                      bgcolor: '#06b6d4',
-                      transform: 'scale(1.05)',
-                    },
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  Transform My Business Now
-                </Button>
-              </Box>
-            )}
-
-            {/* Mobile Menu Button */}
-            {isMobile && (
-              <IconButton onClick={() => setMobileMenuOpen(true)}>
-                <MenuIcon sx={{ color: '#1e293b' }} />
-              </IconButton>
-            )}
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Mobile Drawer */}
-      <Drawer anchor="right" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
-        <Box sx={{ width: 250, pt: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 2 }}>
-            <IconButton onClick={() => setMobileMenuOpen(false)}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <List>
-            {navItems.map((item) => (
-              <ListItem key={item.label} disablePadding>
-                <ListItemButton onClick={() => handleNavClick(item.href)}>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-            <ListItem>
-              <Button
-                fullWidth
-                variant="contained"
-                onClick={() => { navigate('/book-session'); setMobileMenuOpen(false) }}
-                sx={{
-                  bgcolor: '#22d3ee',
-                  color: '#1e293b',
-                  borderRadius: 50,
-                  py: 1.5,
-                  fontWeight: 600,
-                  textTransform: 'none',
-                }}
-              >
-                Transform My Business Now
-              </Button>
-            </ListItem>
-          </List>
-        </Box>
-      </Drawer>
+      {/* Header */}
+      <Header transparentOnTop={false} />
 
       {/* Spacer for fixed nav */}
       <Box sx={{ height: 80 }} />

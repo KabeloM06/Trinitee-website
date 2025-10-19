@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react'
 import {
   Box,
   Container,
@@ -8,37 +7,14 @@ import {
   Grid,
   Card,
   CardContent,
-  useTheme,
-  useMediaQuery,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
 } from '@mui/material'
 import {
   ArrowForward,
   CheckCircle,
-  Menu as MenuIcon,
-  Close as CloseIcon,
 } from '@mui/icons-material'
+import Header from '../components/Header'
 
 const Home: React.FC = () => {
-  const theme = useTheme()
-  const navigate = useNavigate()
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   const problems = [
     {
       title: "You're the Bottleneck",
@@ -95,156 +71,10 @@ const Home: React.FC = () => {
     }
   ]
 
-  const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Services', href: '/services' },
-    { label: 'TAP Method', href: '/tap-method' },
-    { label: 'Results', href: '#results' },
-    { label: 'Contact', href: '#contact' },
-  ]
-
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      // Smooth scroll for anchor links
-      const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    } else {
-      // Navigate to route
-      navigate(href)
-    }
-    setMobileMenuOpen(false)
-  }
-
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'white' }}>
-      {/* Navigation */}
-      <Box
-        component="nav"
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1100,
-          bgcolor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(10px)' : 'none',
-          boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.1)' : 'none',
-          transition: 'all 0.3s ease',
-        }}
-      >
-        <Container maxWidth="lg">
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-              <Box
-                component="img"
-                src="/images/logo.png"
-                alt="Trinitee Logo"
-                sx={{
-                  height: 50,
-                  width: 'auto',
-                  objectFit: 'contain',
-                }}
-              />
-              <Typography
-                variant="h6"
-                sx={{
-                  fontWeight: 700,
-                  color: scrolled ? '#1e293b' : 'white',
-                  transition: 'color 0.3s ease',
-                }}
-              >
-                Trinitee
-              </Typography>
-            </Box>
-
-            {/* Desktop Menu */}
-            {!isMobile && (
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-                {navItems.map((item) => (
-                  <Typography
-                    key={item.label}
-                    onClick={() => handleNavClick(item.href)}
-                    sx={{
-                      color: scrolled ? '#475569' : 'white',
-                      textDecoration: 'none',
-                      fontWeight: 500,
-                      cursor: 'pointer',
-                      transition: 'color 0.2s ease',
-                      '&:hover': { color: '#22d3ee' },
-                    }}
-                  >
-                    {item.label}
-                  </Typography>
-                ))}
-                <Button
-                  variant="contained"
-                  sx={{
-                    bgcolor: '#22d3ee',
-                    color: '#1e293b',
-                    borderRadius: 50,
-                    px: 3,
-                    py: 1,
-                    fontWeight: 600,
-                    textTransform: 'none',
-                    '&:hover': {
-                      bgcolor: '#06b6d4',
-                      transform: 'scale(1.05)',
-                    },
-                    transition: 'all 0.2s ease',
-                  }}
-                >
-                  Transform My Business Now
-                </Button>
-              </Box>
-            )}
-
-            {/* Mobile Menu Button */}
-            {isMobile && (
-              <IconButton onClick={() => setMobileMenuOpen(true)}>
-                {scrolled ? <MenuIcon sx={{ color: '#1e293b' }} /> : <MenuIcon sx={{ color: 'white' }} />}
-              </IconButton>
-            )}
-          </Box>
-        </Container>
-      </Box>
-
-      {/* Mobile Drawer */}
-      <Drawer anchor="right" open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
-        <Box sx={{ width: 250, pt: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', px: 2 }}>
-            <IconButton onClick={() => setMobileMenuOpen(false)}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          <List>
-            {navItems.map((item) => (
-              <ListItem key={item.label} disablePadding>
-                <ListItemButton onClick={() => handleNavClick(item.href)}>
-                  <ListItemText primary={item.label} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-            <ListItem>
-              <Button
-                fullWidth
-                variant="contained"
-                sx={{
-                  bgcolor: '#22d3ee',
-                  color: '#1e293b',
-                  borderRadius: 50,
-                  py: 1.5,
-                  fontWeight: 600,
-                  textTransform: 'none',
-                }}
-              >
-                Transform My Business Now
-              </Button>
-            </ListItem>
-          </List>
-        </Box>
-      </Drawer>
+      {/* Header */}
+      <Header transparentOnTop={true} />
 
       {/* Hero Section */}
       <Box
