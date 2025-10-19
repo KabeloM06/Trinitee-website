@@ -82,7 +82,7 @@ const Services: React.FC = () => {
         'Supplier relationship management',
         'Demand forecasting',
       ],
-      color: '#4a5f7a',
+      color: '#334155',
       icon: <Inventory2Outlined sx={{ fontSize: 40 }} />,
     },
     {
@@ -94,7 +94,7 @@ const Services: React.FC = () => {
         'Automated expense categorization',
         'Smart invoice grading reporting',
       ],
-      color: '#22d3ee',
+      color: '#334155',
       icon: <AccountBalanceWalletOutlined sx={{ fontSize: 40 }} />,
     },
     {
@@ -106,7 +106,7 @@ const Services: React.FC = () => {
         'Personalized communication campaigns',
         'Churn prediction and prevention',
       ],
-      color: '#4a5f7a',
+      color: '#334155',
       icon: <SupportAgentOutlined sx={{ fontSize: 40 }} />,
     },
     {
@@ -118,7 +118,7 @@ const Services: React.FC = () => {
         'Quality control monitoring',
         'Performance analytics and reporting',
       ],
-      color: '#5a6f8a',
+      color: '#334155',
       icon: <PrecisionManufacturingOutlined sx={{ fontSize: 40 }} />,
     },
   ]
@@ -326,6 +326,7 @@ const Services: React.FC = () => {
                     '&:hover': {
                       transform: 'translateY(-8px)',
                       boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
+                      background: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)',
                     },
                   }}
                 >

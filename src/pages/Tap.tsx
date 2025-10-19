@@ -67,7 +67,8 @@ const Tap: React.FC = () => {
       title: 'Transitioning',
       icon: <Psychology sx={{ fontSize: 60 }} />,
       color: '#22d3ee',
-      bgColor: '#22d3ee',
+      bgColor: '#334155',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)',
       description: 'Complete business X-ray and AI agent deployment. We analyze your current operations and begin the transformation immediately.',
       features: [
         'Business assessment across 9 key areas',
@@ -79,7 +80,8 @@ const Tap: React.FC = () => {
       title: 'Awareness',
       icon: <LightbulbOutlined sx={{ fontSize: 60 }} />,
       color: '#475569',
-      bgColor: '#475569',
+      bgColor: '#334155',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)',
       description: 'Systematic transformation with intelligence-driven precision. Your business operates with intelligence-led decision making.',
       features: [
         'Revenue and cost optimization',
@@ -91,7 +93,8 @@ const Tap: React.FC = () => {
       title: 'Performance',
       icon: <TrendingUpOutlined sx={{ fontSize: 60 }} />,
       color: '#64748b',
-      bgColor: '#64748b',
+      bgColor: '#334155',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)',
       description: 'Investment-ready business with documented processes, growth projections, and verified performance metrics.',
       features: [
         'Investment-grade reporting',
@@ -293,6 +296,7 @@ const Tap: React.FC = () => {
                     '&:hover': {
                       transform: 'translateY(-8px)',
                       boxShadow: '0 12px 40px rgba(0,0,0,0.15)',
+                      background: phase.hoverGradient,
                     },
                   }}
                 >
