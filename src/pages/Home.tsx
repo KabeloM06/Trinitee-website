@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Box,
   Container,
@@ -26,6 +27,7 @@ import {
 
 const Home: React.FC = () => {
   const theme = useTheme()
+  const navigate = useNavigate()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -93,11 +95,25 @@ const Home: React.FC = () => {
 
   const navItems = [
     { label: 'About', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'TAP Method', href: '#tap' },
+    { label: 'Services', href: '/services' },
+    { label: 'TAP Method', href: '/tap-method' },
     { label: 'Results', href: '#results' },
     { label: 'Contact', href: '#contact' },
   ]
+
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('#')) {
+      // Smooth scroll for anchor links
+      const element = document.querySelector(href)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // Navigate to route
+      navigate(href)
+    }
+    setMobileMenuOpen(false)
+  }
 
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'white' }}>
@@ -150,12 +166,12 @@ const Home: React.FC = () => {
                 {navItems.map((item) => (
                   <Typography
                     key={item.label}
-                    component="a"
-                    href={item.href}
+                    onClick={() => handleNavClick(item.href)}
                     sx={{
                       color: scrolled ? '#475569' : 'white',
                       textDecoration: 'none',
                       fontWeight: 500,
+                      cursor: 'pointer',
                       transition: 'color 0.2s ease',
                       '&:hover': { color: '#22d3ee' },
                     }}
@@ -206,7 +222,7 @@ const Home: React.FC = () => {
           <List>
             {navItems.map((item) => (
               <ListItem key={item.label} disablePadding>
-                <ListItemButton component="a" href={item.href} onClick={() => setMobileMenuOpen(false)}>
+                <ListItemButton onClick={() => handleNavClick(item.href)}>
                   <ListItemText primary={item.label} />
                 </ListItemButton>
               </ListItem>
@@ -490,89 +506,21 @@ const Home: React.FC = () => {
             </Typography>
           </Box>
 
-          <Grid container spacing={0} sx={{ mb: 8 }}>
-            <Grid item xs={12} md={4}>
-              <Box
-                sx={{
-                  bgcolor: '#1e293b',
-                  borderRadius: 0,
-                  p: 0,
-                  height: 320,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/images/Akha2.png"
-                  alt="Business Analytics"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                    display: 'block',
-                    pointerEvents: 'none',
-                  }}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box
-                sx={{
-                  bgcolor: '#1e293b',
-                  borderRadius: 0,
-                  p: 0,
-                  height: 320,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/images/Akha1.png"
-                  alt="Target Achievement"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                    display: 'block',
-                    pointerEvents: 'none',
-                  }}
-                />
-              </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Box
-                sx={{
-                  bgcolor: '#1e293b',
-                  borderRadius: 0,
-                  p: 0,
-                  height: 320,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                }}
-              >
-                <Box
-                  component="img"
-                  src="/images/Akha3.png"
-                  alt="Team Collaboration"
-                  sx={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                    display: 'block',
-                    pointerEvents: 'none',
-                  }}
-                />
-              </Box>
-            </Grid>
-          </Grid>
+          <Box sx={{ mb: 8, display: 'flex', justifyContent: 'center' }}>
+            <Box
+              component="img"
+              src="/images/AKHA IMAGE.png"
+              alt="AI Business Transformation"
+              sx={{
+                width: '100%',
+                maxWidth: 1200,
+                height: { xs: 300, md: 400 },
+                objectFit: 'contain',
+                display: 'block',
+                pointerEvents: 'none',
+              }}
+            />
+          </Box>
 
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {[
@@ -692,11 +640,6 @@ const Home: React.FC = () => {
               </Grid>
             ))}
           </Grid>
-
-          <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4, gap: 1.5 }}>
-            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#94a3b8' }} />
-            <Box sx={{ width: 12, height: 12, borderRadius: '50%', bgcolor: '#22d3ee' }} />
-          </Box>
 
           <Box sx={{ textAlign: 'center', mt: 6 }}>
             <Button

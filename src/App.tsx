@@ -29,24 +29,14 @@ const App: React.FC = () => {
         
         {/* Fallback individual page routes */}
         <Route path="/home" element={<Home />} />
-        <Route path="/tap-method" element={
-          <Box>
-            <Header />
-            <Tap />
-          </Box>
-        } />
+        <Route path="/tap-method" element={<Tap />} />
         <Route path="/about-us" element={
           <Box>
             <Header />
             <AboutUs />
           </Box>
         } />
-        <Route path="/services" element={
-          <Box>
-            <Header />
-            <Services />
-          </Box>
-        } />
+        <Route path="/services" element={<Services />} />
         <Route path="/insights" element={
           <Box>
             <Header />
