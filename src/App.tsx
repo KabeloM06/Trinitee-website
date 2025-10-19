@@ -24,16 +24,11 @@ const App: React.FC = () => {
       scrollbarWidth: 'none'
     }}>
       <Routes>
-        {/* Main scroll experience */}
-        <Route path="/" element={<ScrollPage />} />
+        {/* Main home page */}
+        <Route path="/" element={<Home />} />
         
         {/* Fallback individual page routes */}
-        <Route path="/home" element={
-          <Box>
-            <Header />
-            <Home />
-          </Box>
-        } />
+        <Route path="/home" element={<Home />} />
         <Route path="/tap-method" element={
           <Box>
             <Header />
@@ -70,6 +65,9 @@ const App: React.FC = () => {
             <BookSession />
           </Box>
         } />
+        
+        {/* Scroll page (optional) */}
+        <Route path="/scroll" element={<ScrollPage />} />
       </Routes>
     </Box>
   )
