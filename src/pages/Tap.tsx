@@ -127,20 +127,17 @@ const Tap: React.FC = () => {
       >
         <Container maxWidth="lg">
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, cursor: 'pointer' }} onClick={() => navigate('/')}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, cursor: 'pointer' }} onClick={() => navigate('/')}>
               <Box
+                component="img"
+                src="/images/logo.png"
+                alt="Trinitee Logo"
                 sx={{
-                  width: 40,
-                  height: 40,
-                  background: 'linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%)',
-                  borderRadius: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  height: 50,
+                  width: 'auto',
+                  objectFit: 'contain',
                 }}
-              >
-                <Psychology sx={{ color: 'white', fontSize: 24 }} />
-              </Box>
+              />
               <Typography
                 variant="h6"
                 sx={{
@@ -149,7 +146,7 @@ const Tap: React.FC = () => {
                   transition: 'color 0.3s ease',
                 }}
               >
-                Trinities
+                Trinitee
               </Typography>
             </Box>
 

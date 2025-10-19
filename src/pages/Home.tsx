@@ -19,7 +19,6 @@ import {
 } from '@mui/material'
 import {
   ArrowForward,
-  Psychology,
   CheckCircle,
   Menu as MenuIcon,
   Close as CloseIcon,
@@ -44,7 +43,7 @@ const Home: React.FC = () => {
     {
       title: "You're the Bottleneck",
       description: "Every decision, every problem, every opportunity needs you. The business can't scale because you can't clone yourself.",
-      color: '#475569'
+      color: '#334155'
     },
     {
       title: "Budget Killing",
@@ -54,12 +53,12 @@ const Home: React.FC = () => {
     {
       title: "Missing Opportunities",
       description: "While you're stuck in check competitors with better systems are seizing market share.",
-      color: '#22d3ee'
+      color: '#334155'
     },
     {
       title: "Isolated Mode",
       description: "You're trying 70-hour weeks just to maintain what you built. Not find the other way around.",
-      color: '#475569'
+      color: '#334155'
     }
   ]
 
@@ -71,7 +70,8 @@ const Home: React.FC = () => {
         "Business diagnostic & 5-key areas",
         "AI deployment and immediate process optimization"
       ],
-      gradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)'
+      gradient: 'linear-gradient(135deg, #334155 0%, #1e293b 100%)',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)'
     },
     {
       title: "Awareness",
@@ -80,7 +80,8 @@ const Home: React.FC = () => {
         "Proven AI autonomous transformation",
         "Automated decisions implementation"
       ],
-      gradient: 'linear-gradient(135deg, #475569 0%, #334155 100%)'
+      gradient: 'linear-gradient(135deg, #334155 0%, #1e293b 100%)',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)'
     },
     {
       title: "Performance",
@@ -89,7 +90,8 @@ const Home: React.FC = () => {
         "Investment-grade reporting mechanisms prepared",
         "Scalable growth systems"
       ],
-      gradient: 'linear-gradient(135deg, #334155 0%, #1e293b 100%)'
+      gradient: 'linear-gradient(135deg, #334155 0%, #1e293b 100%)',
+      hoverGradient: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)'
     }
   ]
 
@@ -134,20 +136,17 @@ const Home: React.FC = () => {
       >
         <Container maxWidth="lg">
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: 80 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
               <Box
+                component="img"
+                src="/images/logo.png"
+                alt="Trinitee Logo"
                 sx={{
-                  width: 40,
-                  height: 40,
-                  background: 'linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%)',
-                  borderRadius: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  height: 50,
+                  width: 'auto',
+                  objectFit: 'contain',
                 }}
-              >
-                <Psychology sx={{ color: 'white', fontSize: 24 }} />
-              </Box>
+              />
               <Typography
                 variant="h6"
                 sx={{
@@ -156,7 +155,7 @@ const Home: React.FC = () => {
                   transition: 'color 0.3s ease',
                 }}
               >
-                Trinities
+                Trinitee
               </Typography>
             </Box>
 
@@ -357,45 +356,26 @@ const Home: React.FC = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Box sx={{ position: 'relative' }}>
+              <Box 
+                sx={{ 
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: 384,
+                }}
+              >
                 <Box
+                  component="img"
+                  src="/images/logo.png"
+                  alt="Trinitee Logo"
                   sx={{
                     width: '100%',
-                    height: 384,
-                    background: 'linear-gradient(135deg, rgba(34, 211, 238, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%)',
-                    borderRadius: 6,
-                    backdropFilter: 'blur(4px)',
-                    border: '1px solid rgba(34, 211, 238, 0.3)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    maxWidth: 400,
+                    height: 'auto',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 10px 30px rgba(34, 211, 238, 0.3))',
                   }}
-                >
-                  <Box sx={{ position: 'relative' }}>
-                    <Box
-                      sx={{
-                        position: 'absolute',
-                        inset: 0,
-                        background: 'linear-gradient(to right, #22d3ee, #3b82f6)',
-                        borderRadius: 6,
-                        filter: 'blur(40px)',
-                        opacity: 0.5,
-                        animation: 'pulse 2s ease-in-out infinite',
-                      }}
-                    />
-                    <Box
-                      sx={{
-                        position: 'relative',
-                        bgcolor: 'rgba(30, 41, 59, 0.5)',
-                        p: 4,
-                        borderRadius: 6,
-                        border: '1px solid rgba(34, 211, 238, 0.5)',
-                      }}
-                    >
-                      <Psychology sx={{ fontSize: 128, color: '#22d3ee' }} />
-                    </Box>
-                  </Box>
-                </Box>
+                />
               </Box>
             </Grid>
           </Grid>
@@ -406,18 +386,6 @@ const Home: React.FC = () => {
       <Box id="about" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography
-              sx={{
-                color: '#22d3ee',
-                fontWeight: 600,
-                mb: 1,
-                fontSize: '0.875rem',
-                textTransform: 'uppercase',
-                letterSpacing: 1,
-              }}
-            >
-              About Trinities
-            </Typography>
             <Typography
               variant="h3"
               sx={{
@@ -449,6 +417,7 @@ const Home: React.FC = () => {
                     '&:hover': {
                       transform: 'scale(1.05)',
                       boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                      background: 'linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%)',
                     },
                   }}
                 >
@@ -478,18 +447,6 @@ const Home: React.FC = () => {
       >
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography
-              sx={{
-                color: '#22d3ee',
-                fontWeight: 600,
-                mb: 1,
-                fontSize: '0.875rem',
-                textTransform: 'uppercase',
-                letterSpacing: 1,
-              }}
-            >
-              About Trinities
-            </Typography>
             <Typography
               variant="h3"
               sx={{
@@ -617,6 +574,7 @@ const Home: React.FC = () => {
                     '&:hover': {
                       transform: 'scale(1.05)',
                       boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+                      background: stage.hoverGradient,
                     },
                   }}
                 >
@@ -670,28 +628,25 @@ const Home: React.FC = () => {
       <Box component="footer" sx={{ bgcolor: '#0f172a', color: 'white', py: 6 }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mb: 3 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.5, mb: 3 }}>
               <Box
+                component="img"
+                src="/images/logo.png"
+                alt="Trinitee Logo"
                 sx={{
-                  width: 40,
-                  height: 40,
-                  background: 'linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%)',
-                  borderRadius: 2,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  height: 50,
+                  width: 'auto',
+                  objectFit: 'contain',
                 }}
-              >
-                <Psychology sx={{ color: 'white', fontSize: 24 }} />
-              </Box>
+              />
               <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                Trinities
+                Trinitee
               </Typography>
             </Box>
             <Typography sx={{ color: '#94a3b8', mb: 2 }}>
               Transforming South African SMMEs with autonomous AI solutions
             </Typography>
-            <Typography sx={{ color: '#64748b' }}>© 2025 Trinities. All rights reserved.</Typography>
+            <Typography sx={{ color: '#64748b' }}>© 2025 Trinitee. All rights reserved.</Typography>
           </Box>
         </Container>
       </Box>
