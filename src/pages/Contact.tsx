@@ -1,13 +1,15 @@
 import React from 'react'
-import PageBackground from '../components/PageBackground'
+import { Box } from '@mui/material'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 const Contact: React.FC = () => {
   return (
-    <PageBackground>
-      <div>
-        {/* New Contact page design will go here */}
-      </div>
-    </PageBackground>
+    <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <Header />
+      <Box sx={{ flex: 1 }} />
+      <Footer />
+    </Box>
   )
 }
 

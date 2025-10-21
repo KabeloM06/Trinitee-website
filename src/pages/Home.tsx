@@ -7,10 +7,16 @@ import {
   Grid,
   Card,
   CardContent,
+  Rating,
+  Divider,
 } from '@mui/material'
 import {
   ArrowForward,
   CheckCircle,
+  TrendingUp,
+  Speed,
+  AttachMoney,
+  Schedule,
 } from '@mui/icons-material'
 import Header from '../components/Header'
 
@@ -454,30 +460,452 @@ const Home: React.FC = () => {
         </Container>
       </Box>
 
-      {/* Footer */}
-      <Box component="footer" sx={{ bgcolor: '#0f172a', color: 'white', py: 6 }}>
+      {/* Real Results Section */}
+      <Box id="results" sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1.5, mb: 3 }}>
-              <Box
-                component="img"
-                src="/images/logo.png"
-                alt="Trinitee Logo"
-                sx={{
-                  height: 50,
-                  width: 'auto',
-                  objectFit: 'contain',
-                }}
-              />
-              <Typography variant="h5" sx={{ fontWeight: 700 }}>
-                Trinitee
-              </Typography>
-            </Box>
-            <Typography sx={{ color: '#94a3b8', mb: 2 }}>
-              Transforming South African SMMEs with autonomous AI solutions
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="overline" sx={{ color: '#22d3ee', fontWeight: 600, fontSize: '1rem' }}>
+              PROVEN RESULTS
             </Typography>
-            <Typography sx={{ color: '#64748b' }}>© 2025 Trinitee. All rights reserved.</Typography>
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 700,
+                color: '#1e293b',
+                mb: 2,
+              }}
+            >
+              Real Results From Real SMME Owners
+            </Typography>
+            <Typography variant="h6" sx={{ color: '#64748b', maxWidth: 768, mx: 'auto' }}>
+              These aren't hypothetical projections—these are actual results from South African businesses just like yours.
+            </Typography>
           </Box>
+
+          {/* Statistics */}
+          <Grid container spacing={3} sx={{ mb: 8 }}>
+            {[
+              { value: '32', label: 'Average Growth Rate', suffix: '%', icon: TrendingUp, color: '#22d3ee' },
+              { value: '94', label: 'Success Rate', suffix: '%', icon: Speed, color: '#22d3ee' },
+              { value: '25', label: 'Average ROI', suffix: 'x', icon: AttachMoney, color: '#22d3ee' },
+              { value: '8', label: 'Mo. Payback', suffix: '', icon: Schedule, color: '#22d3ee' },
+            ].map((stat, index) => (
+              <Grid item xs={12} sm={6} md={3} key={index}>
+                <Card
+                  sx={{
+                    textAlign: 'center',
+                    p: 4,
+                    borderRadius: 4,
+                    bgcolor: 'white',
+                    color: '#1e293b',
+                    border: '2px solid #e2e8f0',
+                    boxShadow: 'none',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      bgcolor: '#22d3ee',
+                      color: 'white',
+                      border: '2px solid #22d3ee',
+                      boxShadow: '0 20px 40px rgba(34, 211, 238, 0.3)',
+                      '& .stat-icon': {
+                        color: 'white',
+                      },
+                    },
+                  }}
+                >
+                  <stat.icon className="stat-icon" sx={{ fontSize: 40, color: stat.color, mb: 2, transition: 'color 0.3s ease' }} />
+                  <Typography variant="h2" sx={{ fontWeight: 700, mb: 1 }}>
+                    {stat.value}
+                    <Typography component="span" variant="h3" sx={{ fontWeight: 700 }}>
+                      {stat.suffix}
+                    </Typography>
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontWeight: 500, opacity: 0.9 }}>
+                    {stat.label}
+                  </Typography>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+
+          {/* Testimonials */}
+          <Grid container spacing={4}>
+            {[
+              {
+                rating: 5,
+                text: "I'm a scientist, Trinitee is more like automation than consulting. Within 3 months, my retail business transformed from chaos to clockwork. Sales up 43%, but more importantly—I'm not working weekends anymore.",
+                name: "Sarah Thandazela",
+                title: "Retailer, Johannesburg",
+                company: "R4.8M Annual Revenue",
+              },
+              {
+                rating: 5,
+                text: "I almost sold my manufacturing business last year due to cash flow stress. Trinitee's AI optimized our entire supply chain in 60 days. We went from struggling to profitable—and got a R2.5M investment offer.",
+                name: "Thabo M.",
+                title: "Manufacturer",
+                company: "Cape Town",
+              },
+              {
+                rating: 5,
+                text: "Working with Trinitee felt like having a CFO, COO, and Business Strategist—all for less than one junior manager's salary. The ROI speaks for itself: 328% in 8 months.",
+                name: "Zanele K.",
+                title: "Service Provider",
+                company: "Durban",
+              },
+            ].map((testimonial, index) => (
+              <Grid item xs={12} md={4} key={index}>
+                <Card
+                  sx={{
+                    p: 4,
+                    borderRadius: 4,
+                    border: '2px solid #e2e8f0',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      border: '2px solid #22d3ee',
+                      boxShadow: '0 10px 30px rgba(34, 211, 238, 0.2)',
+                      transform: 'translateY(-4px)',
+                    },
+                  }}
+                >
+                  <Rating value={testimonial.rating} readOnly sx={{ mb: 2 }} />
+                  <Typography sx={{ color: '#475569', lineHeight: 1.7, mb: 3, flex: 1 }}>
+                    "{testimonial.text}"
+                  </Typography>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box
+                      sx={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: '50%',
+                        bgcolor: '#22d3ee',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        fontWeight: 700,
+                        fontSize: '1.2rem',
+                      }}
+                    >
+                      {testimonial.name.charAt(0)}
+                    </Box>
+                    <Box>
+                      <Typography sx={{ fontWeight: 600, color: '#1e293b' }}>{testimonial.name}</Typography>
+                      <Typography sx={{ fontSize: '0.875rem', color: '#64748b' }}>
+                        {testimonial.title}
+                      </Typography>
+                      <Typography sx={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                        {testimonial.company}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
+
+      {/* Pricing Section */}
+      <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: '#f8fafc' }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography
+              variant="h3"
+              sx={{
+                fontSize: { xs: '2rem', md: '3rem' },
+                fontWeight: 700,
+                color: '#1e293b',
+                mb: 2,
+              }}
+            >
+              Choose Your Business Transformation Path
+            </Typography>
+          </Box>
+
+          <Grid container spacing={4} alignItems="stretch">
+            {/* Growth Plan */}
+            <Grid item xs={12} md={4}>
+              <Card
+                sx={{
+                  p: 4,
+                  borderRadius: 4,
+                  bgcolor: 'white',
+                  border: '2px solid #e2e8f0',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    bgcolor: '#22d3ee',
+                    color: 'white',
+                    border: '2px solid #22d3ee',
+                    boxShadow: '0 20px 40px rgba(34, 211, 238, 0.3)',
+                    '& .price-text': {
+                      color: 'white',
+                    },
+                    '& .feature-text': {
+                      color: 'white',
+                    },
+                    '& .check-icon': {
+                      color: 'white',
+                    },
+                    '& .divider': {
+                      bgcolor: 'rgba(255,255,255,0.3)',
+                    },
+                    '& .cta-button': {
+                      bgcolor: 'white',
+                      color: '#22d3ee',
+                      borderColor: 'white',
+                    },
+                  },
+                }}
+              >
+                <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e293b', mb: 1, transition: 'color 0.3s ease' }}>
+                  Growth Plan
+                </Typography>
+                <Typography variant="h3" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
+                  R1,000
+                  <Typography component="span" variant="h6" className="price-text" sx={{ color: '#64748b', fontWeight: 500, transition: 'color 0.3s ease' }}>
+                    /month
+                  </Typography>
+                </Typography>
+                <Divider className="divider" sx={{ mb: 3, transition: 'background-color 0.3s ease' }} />
+                <Box component="ul" sx={{ pl: 0, listStyle: 'none', mb: 4, flex: 1 }}>
+                  {[
+                    'Complete business transformation',
+                    'Autonomous AI agent implementation',
+                    '24/7 automated operations monitoring',
+                    'Data-driven decision support',
+                    'Monthly performance optimization',
+                    'Investment-ready documentation',
+                    'Priority email & chat support',
+                  ].map((feature, idx) => (
+                    <Box key={idx} component="li" sx={{ display: 'flex', gap: 1.5, mb: 2 }}>
+                      <CheckCircle className="check-icon" sx={{ color: '#22d3ee', fontSize: 20, flexShrink: 0, mt: 0.25, transition: 'color 0.3s ease' }} />
+                      <Typography className="feature-text" sx={{ color: '#475569', transition: 'color 0.3s ease' }}>{feature}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+                <Button
+                  className="cta-button"
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    borderColor: '#22d3ee',
+                    color: '#22d3ee',
+                    borderWidth: 2,
+                    borderRadius: 50,
+                    py: 1.5,
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Get Started
+                </Button>
+              </Card>
+            </Grid>
+
+            {/* Pro Plan - Featured */}
+            <Grid item xs={12} md={4}>
+              <Box sx={{ position: 'relative', height: '100%' }}>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    top: 16,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    bgcolor: '#1e293b',
+                    color: 'white',
+                    px: 3,
+                    py: 0.5,
+                    borderRadius: 50,
+                    fontSize: '0.875rem',
+                    fontWeight: 600,
+                    zIndex: 10,
+                  }}
+                >
+                  MOST POPULAR
+                </Box>
+                <Card
+                  sx={{
+                    p: 4,
+                    pt: 6,
+                    borderRadius: 4,
+                    bgcolor: 'white',
+                    border: '2px solid #e2e8f0',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      transform: 'translateY(-8px)',
+                      bgcolor: '#22d3ee',
+                      color: 'white',
+                      border: '2px solid #22d3ee',
+                      boxShadow: '0 20px 40px rgba(34, 211, 238, 0.3)',
+                      '& .price-text': {
+                        color: 'white',
+                      },
+                      '& .feature-text': {
+                        color: 'white',
+                      },
+                      '& .check-icon': {
+                        color: 'white',
+                      },
+                      '& .divider': {
+                        bgcolor: 'rgba(255,255,255,0.3)',
+                      },
+                      '& .cta-button': {
+                        bgcolor: 'white',
+                        color: '#22d3ee',
+                      },
+                    },
+                  }}
+                >
+                  <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e293b', mb: 1, transition: 'color 0.3s ease' }}>
+                    Pro Plan
+                  </Typography>
+                  <Typography variant="h3" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
+                    R2,500
+                    <Typography component="span" variant="h6" className="price-text" sx={{ color: '#64748b', fontWeight: 500, transition: 'color 0.3s ease' }}>
+                      /month
+                    </Typography>
+                  </Typography>
+                  <Divider className="divider" sx={{ mb: 3, transition: 'background-color 0.3s ease' }} />
+                  <Box component="ul" sx={{ pl: 0, listStyle: 'none', mb: 4, flex: 1 }}>
+                    {[
+                      'Everything in Growth Plan',
+                      'Advanced AI predictive analytics',
+                      'Real-time market intelligence',
+                      'Automated competitive analysis',
+                      'Custom AI agent development',
+                      'Weekly strategy sessions',
+                      'Dedicated success manager',
+                      'API access for integrations',
+                      'Priority 24/7 support',
+                    ].map((feature, idx) => (
+                      <Box key={idx} component="li" sx={{ display: 'flex', gap: 1.5, mb: 2 }}>
+                        <CheckCircle className="check-icon" sx={{ color: '#22d3ee', fontSize: 20, flexShrink: 0, mt: 0.25, transition: 'color 0.3s ease' }} />
+                        <Typography className="feature-text" sx={{ color: '#475569', transition: 'color 0.3s ease' }}>{feature}</Typography>
+                      </Box>
+                    ))}
+                  </Box>
+                  <Button
+                    className="cta-button"
+                    variant="contained"
+                    fullWidth
+                    sx={{
+                      bgcolor: '#22d3ee',
+                      color: 'white',
+                      borderRadius: 50,
+                      py: 1.5,
+                      fontSize: '1rem',
+                      fontWeight: 600,
+                      textTransform: 'none',
+                      transition: 'all 0.3s ease',
+                      '&:hover': {
+                        bgcolor: '#06b6d4',
+                      },
+                    }}
+                  >
+                    Transform My Business
+                  </Button>
+                </Card>
+              </Box>
+            </Grid>
+
+            {/* Enterprise Plan */}
+            <Grid item xs={12} md={4}>
+              <Card
+                sx={{
+                  p: 4,
+                  borderRadius: 4,
+                  bgcolor: 'white',
+                  border: '2px solid #e2e8f0',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'all 0.3s ease',
+                  position: 'relative',
+                  '&:hover': {
+                    transform: 'translateY(-8px)',
+                    bgcolor: '#22d3ee',
+                    color: 'white',
+                    border: '2px solid #22d3ee',
+                    boxShadow: '0 20px 40px rgba(34, 211, 238, 0.3)',
+                    '& .price-text': {
+                      color: 'white',
+                    },
+                    '& .feature-text': {
+                      color: 'white',
+                    },
+                    '& .check-icon': {
+                      color: 'white',
+                    },
+                    '& .divider': {
+                      bgcolor: 'rgba(255,255,255,0.3)',
+                    },
+                    '& .cta-button': {
+                      bgcolor: 'white',
+                      color: '#22d3ee',
+                      borderColor: 'white',
+                    },
+                  },
+                }}
+              >
+                <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e293b', mb: 1, transition: 'color 0.3s ease' }}>
+                  Enterprise
+                </Typography>
+                <Typography variant="h3" sx={{ fontWeight: 700, color: '#1e293b', mb: 3, transition: 'color 0.3s ease' }}>
+                  Custom
+                </Typography>
+                <Divider className="divider" sx={{ mb: 3, transition: 'background-color 0.3s ease' }} />
+                <Box component="ul" sx={{ pl: 0, listStyle: 'none', mb: 4, flex: 1 }}>
+                  {[
+                    'Everything in Pro Plan',
+                    'Multi-location support',
+                    'Enterprise-grade security',
+                    'Custom AI model training',
+                    'White-label options',
+                    'On-site implementation',
+                    'SLA guarantees',
+                    '24/7 dedicated support team',
+                  ].map((feature, idx) => (
+                    <Box key={idx} component="li" sx={{ display: 'flex', gap: 1.5, mb: 2 }}>
+                      <CheckCircle className="check-icon" sx={{ color: '#22d3ee', fontSize: 20, flexShrink: 0, mt: 0.25, transition: 'color 0.3s ease' }} />
+                      <Typography className="feature-text" sx={{ color: '#475569', transition: 'color 0.3s ease' }}>{feature}</Typography>
+                    </Box>
+                  ))}
+                </Box>
+                <Button
+                  className="cta-button"
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    borderColor: '#1e293b',
+                    color: '#1e293b',
+                    borderWidth: 2,
+                    borderRadius: 50,
+                    py: 1.5,
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    textTransform: 'none',
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Contact Sales
+                </Button>
+              </Card>
+            </Grid>
+          </Grid>
         </Container>
       </Box>
 

@@ -76,27 +76,27 @@ const Services: React.FC = () => {
   const corporateServices = [
     {
       title: 'TECHNOLOGY SOLUTIONS',
-      icon: <ComputerOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/1@3x.png',
     },
     {
       title: 'BUSINESS CONSULTING',
-      icon: <TrendingUpOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/2@3x.png',
     },
     {
       title: 'CYBER SECURITY',
-      icon: <SecurityOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/3@3x.png',
     },
     {
       title: 'DIGITAL TRANSFORMATION',
-      icon: <TransformOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/4@3x.png',
     },
     {
       title: 'STRATEGY & PLANNING',
-      icon: <BarChartOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/5@3x.png',
     },
     {
       title: 'COMPLIANCE & RISK',
-      icon: <AssignmentTurnedInOutlined sx={{ fontSize: 48 }} />,
+      icon: '/images/6@3x.png',
     },
   ]
 
@@ -203,22 +203,21 @@ const Services: React.FC = () => {
       <Box
         sx={{
           py: { xs: 8, md: 12 },
-          background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 100%)',
           position: 'relative',
           overflow: 'hidden',
-        }}
-      >
-        {/* Background Pattern */}
-        <Box
-          sx={{
+          backgroundImage: 'url(/services/wallpaper.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          '&::before': {
+            content: '""',
             position: 'absolute',
             inset: 0,
-            opacity: 0.05,
-            backgroundImage:
-              'radial-gradient(circle at 20% 50%, rgba(34, 211, 238, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.4) 0%, transparent 50%)',
-          }}
-        />
-
+            bgcolor: 'rgba(15, 23, 42, 0.85)',
+            zIndex: 0,
+          },
+        }}
+      >
         <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
           <Box sx={{ textAlign: 'center', mb: 10 }}>
             <Typography
@@ -268,7 +267,6 @@ const Services: React.FC = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     height: 220,
-                    cursor: 'pointer',
                   }}
                 >
                   {/* Hexagon Container */}
@@ -282,50 +280,19 @@ const Services: React.FC = () => {
                       alignItems: 'center',
                       justifyContent: 'center',
                       clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-                      bgcolor: 'rgba(226, 232, 240, 0.1)',
-                      border: '2px solid rgba(34, 211, 238, 0.3)',
-                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                      '&:hover': {
-                        transform: 'scale(1.1) rotate(5deg)',
-                        bgcolor: '#22d3ee',
-                        border: '2px solid #22d3ee',
-                        boxShadow: '0 0 40px rgba(34, 211, 238, 0.5)',
-                        '& .service-icon': {
-                          color: '#0f172a',
-                          transform: 'scale(1.2)',
-                        },
-                        '& .service-title': {
-                          color: '#0f172a',
-                        },
-                      },
+                      overflow: 'hidden',
                     }}
                   >
                     <Box
-                      className="service-icon"
+                      component="img"
+                      src={service.icon}
+                      alt={service.title}
                       sx={{
-                        color: '#22d3ee',
-                        mb: 2,
-                        transition: 'all 0.4s ease',
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
                       }}
-                    >
-                      {service.icon}
-                    </Box>
-                    <Typography
-                      className="service-title"
-                      sx={{
-                        fontSize: '0.8rem',
-                        fontWeight: 700,
-                        color: 'white',
-                        textAlign: 'center',
-                        px: 3,
-                        transition: 'all 0.4s ease',
-                        textTransform: 'uppercase',
-                        letterSpacing: 1,
-                        lineHeight: 1.4,
-                      }}
-                    >
-                      {service.title}
-                    </Typography>
+                    />
                   </Box>
                 </Box>
               </Grid>

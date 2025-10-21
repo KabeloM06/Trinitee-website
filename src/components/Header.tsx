@@ -41,11 +41,11 @@ const Header: React.FC<HeaderProps> = ({ transparentOnTop = false }) => {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
+    { label: 'About', href: '/about-us' },
     { label: 'Services', href: '/services' },
     { label: 'TAP Method', href: '/tap-method' },
-    { label: 'Results', href: '/#results' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Results', href: '/results' },
+    { label: 'Contact', href: '/contact' },
   ]
 
   const handleNavClick = (href: string) => {
