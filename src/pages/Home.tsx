@@ -128,7 +128,7 @@ const Home: React.FC = () => {
                 <Typography
                   variant="h2"
                   sx={{
-                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                    fontSize: { xs: '1.75rem', sm: '2.5rem', md: '3.5rem' },
                     fontWeight: 700,
                     lineHeight: 1.2,
                     mb: 3,
@@ -139,7 +139,12 @@ const Home: React.FC = () => {
                     AI-Powered Solutions
                   </Box>
                 </Typography>
-                <Typography variant="h6" sx={{ color: '#cbd5e1', mb: 4, lineHeight: 1.6 }}>
+                <Typography variant="h6" sx={{ 
+                  color: '#cbd5e1', 
+                  mb: 4, 
+                  lineHeight: 1.6,
+                  fontSize: { xs: '1rem', sm: '1.125rem', md: '1.25rem' },
+                }}>
                   Watch your SMME transform into an investment-ready powerhouse through autonomous AI agents
                   that don't just analyze—they execute.
                 </Typography>
@@ -151,9 +156,9 @@ const Home: React.FC = () => {
                       bgcolor: '#22d3ee',
                       color: '#1e293b',
                       borderRadius: 50,
-                      px: 4,
-                      py: 2,
-                      fontSize: '1rem',
+                      px: { xs: 3, sm: 4 },
+                      py: { xs: 1.5, sm: 2 },
+                      fontSize: { xs: '0.9rem', sm: '1rem' },
                       fontWeight: 600,
                       textTransform: 'none',
                       '&:hover': {
@@ -172,9 +177,9 @@ const Home: React.FC = () => {
                       color: 'white',
                       borderWidth: 2,
                       borderRadius: 50,
-                      px: 4,
-                      py: 2,
-                      fontSize: '1rem',
+                      px: { xs: 3, sm: 4 },
+                      py: { xs: 1.5, sm: 2 },
+                      fontSize: { xs: '0.9rem', sm: '1rem' },
                       fontWeight: 600,
                       textTransform: 'none',
                       '&:hover': {
@@ -194,7 +199,7 @@ const Home: React.FC = () => {
             <Grid item xs={12} md={6}>
               <Box 
                 sx={{ 
-                  display: 'flex',
+                  display: { xs: 'none', md: 'flex' },
                   alignItems: 'center',
                   justifyContent: 'center',
                   minHeight: 384,
@@ -225,15 +230,22 @@ const Home: React.FC = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: { xs: '2rem', md: '3rem' },
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' },
                 fontWeight: 700,
                 color: '#1e293b',
                 mb: 2,
+                px: { xs: 2, sm: 0 },
               }}
             >
               Why 70% of South African SMMEs Fail Within 3 Years
             </Typography>
-            <Typography variant="h6" sx={{ color: '#64748b', maxWidth: 768, mx: 'auto' }}>
+            <Typography variant="h6" sx={{ 
+              color: '#64748b', 
+              maxWidth: 768, 
+              mx: 'auto',
+              fontSize: { xs: '0.95rem', sm: '1.125rem' },
+              px: { xs: 2, sm: 0 },
+            }}>
               You started your business with big dreams, but now you're trapped in a cycle that's slowly
               killing your ambitions.
             </Typography>

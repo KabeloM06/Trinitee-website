@@ -259,21 +259,21 @@ const Services: React.FC = () => {
 
           <Grid container spacing={5} justifyContent="center">
             {corporateServices.map((service, index) => (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Grid item xs={6} sm={6} md={4} key={index}>
                 <Box
                   sx={{
                     position: 'relative',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: 220,
+                    height: { xs: 150, sm: 180, md: 220 },
                   }}
                 >
                   {/* Hexagon Container */}
                   <Box
                     sx={{
-                      width: 200,
-                      height: 220,
+                      width: { xs: 130, sm: 160, md: 200 },
+                      height: { xs: 150, sm: 180, md: 220 },
                       position: 'relative',
                       display: 'flex',
                       flexDirection: 'column',

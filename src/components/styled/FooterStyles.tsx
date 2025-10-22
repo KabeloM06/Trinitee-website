@@ -47,6 +47,10 @@ export const SectionTitle = styled('h2')({
   marginBottom: '20px',
   lineHeight: '1.3',
   fontFamily: '"Montserrat", sans-serif',
+  '@media (max-width: 600px)': {
+    fontSize: '20px',
+    marginBottom: '16px',
+  },
 })
 
 export const SectionSubtitle = styled('p')({
@@ -54,6 +58,10 @@ export const SectionSubtitle = styled('p')({
   lineHeight: '1.6',
   marginBottom: '30px',
   opacity: 0.95,
+  '@media (max-width: 600px)': {
+    fontSize: '14px',
+    marginBottom: '20px',
+  },
 })
 
 export const FormContainer = styled('form')({

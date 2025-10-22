@@ -7,7 +7,7 @@ const Contact: React.FC = () => {
   return (
     <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Header />
-      <Box sx={{ flex: 1 }} />
+      <Box sx={{ flex: 1, minHeight: { xs: '20vh', md: '40vh' } }} />
       <Footer />
     </Box>
   )

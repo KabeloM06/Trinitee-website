@@ -67,10 +67,11 @@ const AboutUs: React.FC = () => {
             <Typography
               variant="h3"
               sx={{
-                fontSize: { xs: '2rem', md: '2.5rem' },
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' },
                 fontWeight: 700,
                 color: '#2d3748',
                 mb: 2,
+                px: { xs: 2, sm: 0 },
               }}
             >
               Meet the Trinitee Group Team
@@ -80,9 +81,10 @@ const AboutUs: React.FC = () => {
               sx={{
                 color: '#64748b',
                 fontWeight: 400,
-                fontSize: { xs: '1rem', md: '1.125rem' },
+                fontSize: { xs: '0.95rem', sm: '1rem', md: '1.125rem' },
                 maxWidth: 900,
                 mx: 'auto',
+                px: { xs: 2, sm: 0 },
               }}
             >
               Visionary leaders driving organizational transformation through innovative business solutions
@@ -113,10 +115,10 @@ const AboutUs: React.FC = () => {
                 >
                   <Avatar
                     sx={{
-                      width: 120,
-                      height: 120,
+                      width: { xs: 80, sm: 100, md: 120 },
+                      height: { xs: 80, sm: 100, md: 120 },
                       bgcolor: member.color,
-                      fontSize: '2.5rem',
+                      fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
                       fontWeight: 700,
                       mb: 3,
                       boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
@@ -130,6 +132,7 @@ const AboutUs: React.FC = () => {
                       fontWeight: 700,
                       color: '#1e293b',
                       mb: 1,
+                      fontSize: { xs: '1.125rem', sm: '1.25rem', md: '1.5rem' },
                     }}
                   >
                     {member.name}
@@ -138,7 +141,7 @@ const AboutUs: React.FC = () => {
                     sx={{
                       color: '#22d3ee',
                       fontWeight: 600,
-                      fontSize: '1rem',
+                      fontSize: { xs: '0.875rem', sm: '0.95rem', md: '1rem' },
                       mb: 3,
                     }}
                   >
@@ -148,7 +151,7 @@ const AboutUs: React.FC = () => {
                     sx={{
                       color: '#475569',
                       lineHeight: 1.7,
-                      fontSize: '1rem',
+                      fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
                     }}
                   >
                     {member.description}

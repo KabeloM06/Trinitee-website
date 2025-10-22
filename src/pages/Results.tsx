@@ -28,21 +28,32 @@ const Results: React.FC = () => {
       <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'white' }}>
         <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 8 }}>
-            <Typography variant="overline" sx={{ color: '#22d3ee', fontWeight: 600, fontSize: '1rem' }}>
+            <Typography variant="overline" sx={{ 
+              color: '#22d3ee', 
+              fontWeight: 600, 
+              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' },
+            }}>
               PROVEN RESULTS
             </Typography>
             <Typography
               variant="h3"
               sx={{
-                fontSize: { xs: '2rem', md: '3rem' },
+                fontSize: { xs: '1.5rem', sm: '2rem', md: '3rem' },
                 fontWeight: 700,
                 color: '#1e293b',
                 mb: 2,
+                px: { xs: 2, sm: 0 },
               }}
             >
               Real Results From Real SMME Owners
             </Typography>
-            <Typography variant="h6" sx={{ color: '#64748b', maxWidth: 768, mx: 'auto' }}>
+            <Typography variant="h6" sx={{ 
+              color: '#64748b', 
+              maxWidth: 768, 
+              mx: 'auto',
+              fontSize: { xs: '0.95rem', sm: '1.125rem' },
+              px: { xs: 2, sm: 0 },
+            }}>
               These aren't hypothetical projections—these are actual results from South African businesses just like yours.
             </Typography>
           </Box>
@@ -59,7 +70,7 @@ const Results: React.FC = () => {
                 <Card
                   sx={{
                     textAlign: 'center',
-                    p: 4,
+                    p: { xs: 3, sm: 4 },
                     borderRadius: 4,
                     bgcolor: 'white',
                     color: '#1e293b',
@@ -78,14 +89,14 @@ const Results: React.FC = () => {
                     },
                   }}
                 >
-                  <stat.icon className="stat-icon" sx={{ fontSize: 40, color: stat.color, mb: 2, transition: 'color 0.3s ease' }} />
-                  <Typography variant="h2" sx={{ fontWeight: 700, mb: 1 }}>
+                  <stat.icon className="stat-icon" sx={{ fontSize: { xs: 32, sm: 40 }, color: stat.color, mb: 2, transition: 'color 0.3s ease' }} />
+                  <Typography variant="h2" sx={{ fontWeight: 700, mb: 1, fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' } }}>
                     {stat.value}
-                    <Typography component="span" variant="h3" sx={{ fontWeight: 700 }}>
+                    <Typography component="span" variant="h3" sx={{ fontWeight: 700, fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
                       {stat.suffix}
                     </Typography>
                   </Typography>
-                  <Typography variant="body1" sx={{ fontWeight: 500, opacity: 0.9 }}>
+                  <Typography variant="body1" sx={{ fontWeight: 500, opacity: 0.9, fontSize: { xs: '0.875rem', sm: '1rem' } }}>
                     {stat.label}
                   </Typography>
                 </Card>
