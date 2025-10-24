@@ -271,7 +271,7 @@ const Tap: React.FC = () => {
             <Button
               variant="contained"
               size="large"
-              onClick={() => navigate('/book-session')}
+              onClick={() => navigate('/contact')}
               sx={{
                 bgcolor: '#22d3ee',
                 color: 'white',
