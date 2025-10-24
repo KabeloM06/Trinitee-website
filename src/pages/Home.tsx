@@ -19,8 +19,11 @@ import {
   Schedule,
 } from '@mui/icons-material'
 import Header from '../components/Header'
+import { useNavigate } from 'react-router-dom'
 
 const Home: React.FC = () => {
+  const navigate = useNavigate()
+
   const problems = [
     {
       title: "You're the Bottleneck",
