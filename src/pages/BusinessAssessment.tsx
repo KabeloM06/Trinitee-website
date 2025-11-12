@@ -370,40 +370,33 @@ const BusinessAssessment: React.FC = () => {
     <Box sx={{ minHeight: '100vh', bgcolor: '#f8fafc' }}>
       <Header />
 
-      {/* Hero Section */}
-      <Box
-        sx={{
-          background: 'linear-gradient(135deg, #1e293b 0%, #475569 50%, #0f172a 100%)',
-          color: 'white',
-          pt: { xs: 16, md: 20 },
-          pb: { xs: 6, md: 8 },
-        }}
-      >
-        <Container maxWidth="lg">
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2rem', md: '3.5rem' },
-              fontWeight: 700,
-              textAlign: 'center',
-              mb: 2,
-            }}
-          >
-            SMME Business Value Assessment Platform
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              textAlign: 'center',
-              color: '#cbd5e1',
-              maxWidth: 800,
-              mx: 'auto',
-            }}
-          >
-            Comprehensive Business Valuation for Small, Medium & Micro Enterprises
-          </Typography>
-        </Container>
-      </Box>
+      {/* Page Heading and Intro */}
+  <Container maxWidth="lg" sx={{ pt: { xs: 12, md: 18 }, pb: 2, mt: { xs: 2, md: 4 } }}>
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: 700,
+            textAlign: 'center',
+            mb: 1,
+            color: '#1e293b',
+            fontSize: { xs: '2rem', md: '2.7rem' },
+          }}
+        >
+          Business Value Assessment
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          sx={{
+            textAlign: 'center',
+            color: '#64748b',
+            maxWidth: 700,
+            mx: 'auto',
+            mb: 4,
+          }}
+        >
+          Get a comprehensive valuation and health check for your business. Complete the form below to receive a detailed report and actionable insights.
+        </Typography>
+      </Container>
 
       <Container maxWidth="lg" sx={{ py: 6 }}>
         {error && (
