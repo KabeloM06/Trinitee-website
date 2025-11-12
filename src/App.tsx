@@ -11,6 +11,7 @@ import Insights from './pages/Insights'
 import Results from './pages/Results'
 import Contact from './pages/Contact'
 import BookSession from './pages/BookSession'
+import BusinessAssessment from './pages/BusinessAssessment'
 import ScrollPage from './components/ScrollPage'
 
 const AppContent: React.FC = () => {
@@ -57,6 +58,12 @@ const AppContent: React.FC = () => {
             <Box>
               <Header />
               <BookSession />
+            </Box>
+          } />
+          <Route path="/business-assessment" element={
+            <Box>
+              <Header />
+              <BusinessAssessment />
             </Box>
           } />
           

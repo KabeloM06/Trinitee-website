@@ -183,7 +183,7 @@ const Header: React.FC<HeaderProps> = ({ transparentOnTop = false }) => {
                 })}
                 <Button
                   variant="contained"
-                  onClick={() => navigate('/contact')}
+                  onClick={() => navigate('/business-assessment')}
                   sx={{
                     bgcolor: '#22d3ee',
                     color: '#1e293b',
@@ -235,7 +235,7 @@ const Header: React.FC<HeaderProps> = ({ transparentOnTop = false }) => {
                 fullWidth
                 variant="contained"
                 onClick={() => {
-                  navigate('/contact')
+                  navigate('/business-assessment')
                   setMobileMenuOpen(false)
                 }}
                 sx={{

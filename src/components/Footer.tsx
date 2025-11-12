@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { SelectChangeEvent, Alert, Snackbar } from '@mui/material'
-import { sendBusinessAssessmentEmail } from '../services/emailService'
+import { useMutation } from '@apollo/client/react'
+import { SUBMIT_ASSESSMENT } from '../graphql/mutations'
 import {
   FooterContainer,
   FooterContent,
@@ -37,10 +38,35 @@ const Footer: React.FC = () => {
     challenge: '',
   })
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [snackbarOpen, setSnackbarOpen] = useState(false)
   const [snackbarMessage, setSnackbarMessage] = useState('')
   const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error'>('success')
+
+  const [submitAssessment, { loading: isSubmitting }] = useMutation(SUBMIT_ASSESSMENT, {
+    onCompleted: () => {
+      setSnackbarMessage("Assessment request sent successfully! We'll be in touch soon.")
+      setSnackbarSeverity('success')
+      setSnackbarOpen(true)
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        annualRevenue: '',
+        challenge: '',
+      })
+    },
+    onError: (error) => {
+      console.error('Error submitting assessment:', error)
+      setSnackbarMessage(
+        'Failed to send assessment request. Please try again or contact us directly.'
+      )
+      setSnackbarSeverity('error')
+      setSnackbarOpen(true)
+    },
+  })
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent<string>
@@ -54,46 +80,12 @@ const Footer: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitting(true)
 
-    try {
-      // Send email using the email service
-      const success = await sendBusinessAssessmentEmail({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        annualRevenue: formData.annualRevenue,
-        challenge: formData.challenge,
-      })
-
-      if (success) {
-        setSnackbarMessage('Assessment request sent successfully! We\'ll be in touch soon.')
-        setSnackbarSeverity('success')
-        setSnackbarOpen(true)
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          annualRevenue: '',
-          challenge: '',
-        })
-      } else {
-        setSnackbarMessage('Failed to send assessment request. Please try again or contact us directly.')
-        setSnackbarSeverity('error')
-        setSnackbarOpen(true)
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error)
-      setSnackbarMessage('An error occurred. Please try again later.')
-      setSnackbarSeverity('error')
-      setSnackbarOpen(true)
-    } finally {
-      setIsSubmitting(false)
-    }
+    await submitAssessment({
+      variables: {
+        input: formData,
+      },
+    })
   }
 
   const handleCloseSnackbar = () => {

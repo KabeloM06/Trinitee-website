@@ -155,7 +155,7 @@ const Home: React.FC = () => {
                   <Button
                     variant="contained"
                     endIcon={<ArrowForward />}
-                    onClick={() => navigate('/contact')}
+                    onClick={() => navigate('/business-assessment')}
                     sx={{
                       bgcolor: '#22d3ee',
                       color: '#1e293b',
@@ -369,7 +369,7 @@ const Home: React.FC = () => {
           <Box sx={{ textAlign: 'center', mt: 6 }}>
             <Button
               variant="contained"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/business-assessment')}
               sx={{
                 bgcolor: '#22d3ee',
                 color: '#1e293b',
@@ -455,7 +455,7 @@ const Home: React.FC = () => {
           <Box sx={{ textAlign: 'center', mt: 6 }}>
             <Button
               variant="contained"
-              onClick={() => navigate('/contact')}
+              onClick={() => navigate('/business-assessment')}
               sx={{
                 bgcolor: '#22d3ee',
                 color: '#1e293b',
@@ -820,6 +820,7 @@ const Home: React.FC = () => {
                     className="cta-button"
                     variant="contained"
                     fullWidth
+                    onClick={() => navigate('/business-assessment')}
                     sx={{
                       bgcolor: '#22d3ee',
                       color: 'white',
