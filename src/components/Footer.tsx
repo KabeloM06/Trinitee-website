@@ -193,16 +193,16 @@ const Footer: React.FC = () => {
           <ContactInfo>
             <ContactItem>
               <ContactLabel>WhatsApp Business Chat</ContactLabel>
-              <ContactLink href="https://wa.me/27790793016" target="_blank" rel="noopener noreferrer">
-                +27 79 079 3016
+              <ContactLink href="https://wa.me/27790709210" target="_blank" rel="noopener noreferrer">
+                +27 79 070 9210
               </ContactLink>
               <ContactDetail>- Instant responses during business hours</ContactDetail>
             </ContactItem>
 
             <ContactItem>
               <ContactLabel>Phone Consultation</ContactLabel>
-              <ContactLink href="tel:+27790793016">
-                +27 79 079 3016
+              <ContactLink href="tel:+27790709210">
+                +27 79 070 9210
               </ContactLink>
               <ContactDetail>- Mon-Fri 8:00 AM - 5:00 PM</ContactDetail>
             </ContactItem>
@@ -212,13 +212,17 @@ const Footer: React.FC = () => {
               <ContactLink href="mailto:info@trinitee.co.za">
                 info@trinitee.co.za
               </ContactLink>
+              <ContactLink href="mailto:pako@trinitee.co.za">
+                pako@trinitee.co.za
+              </ContactLink>
               <ContactDetail>- We respond within 24 hours</ContactDetail>
             </ContactItem>
 
             <ContactItem>
               <ContactLabel>Visit Our Office</ContactLabel>
-              <ContactDetail>1st Floor, Gateway West</ContactDetail>
-              <ContactDetail>22 Magwa Cres, Midrand,</ContactDetail>
+              <ContactDetail>72 Greenfield Road, Greenside, Johannesburg</ContactDetail>
+              {/* <ContactDetail>Greenside</ContactDetail>
+              <ContactDetail>Johannesburg</ContactDetail> */}
             </ContactItem>
 
             <ContactItem>
