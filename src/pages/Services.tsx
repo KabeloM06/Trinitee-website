@@ -12,12 +12,6 @@ import {
   AccountBalanceWalletOutlined,
   SupportAgentOutlined,
   PrecisionManufacturingOutlined,
-  ComputerOutlined,
-  TrendingUpOutlined,
-  SecurityOutlined,
-  TransformOutlined,
-  BarChartOutlined,
-  AssignmentTurnedInOutlined,
 } from '@mui/icons-material'
 import Header from '../components/Header'
 

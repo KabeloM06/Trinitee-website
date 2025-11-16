@@ -8,6 +8,16 @@ export default defineConfig({
     port: 3000,
     open: true
   },
+  preview: {
+    host: '0.0.0.0',
+    port: 4173,
+    strictPort: false,
+    allowedHosts: [
+      'trinitee-website-production.up.railway.app',
+      '.railway.app',
+      'localhost',
+    ]
+  },
   build: {
     outDir: 'dist',
     sourcemap: true

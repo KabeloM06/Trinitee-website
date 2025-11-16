@@ -23,12 +23,10 @@ import {
   TrendingUp,
   Speed,
   Rocket,
-  CheckCircle,
   Close,
   Email,
 } from '@mui/icons-material'
 import Header from '../components/Header'
-import { useNavigate } from 'react-router-dom'
 import { SUBMIT_ASSESSMENT } from '../graphql/mutations'
 
 interface ContactInfo {
@@ -176,14 +174,14 @@ const BusinessAssessment: React.FC = () => {
     adaptability: 0,
   })
 
-  const [scores, setScores] = useState<AssessmentScores>({
+  const [_scores, setScores] = useState<AssessmentScores>({
     financial: 0,
     market: 0,
     operational: 0,
     growth: 0,
   })
 
-  const [valuation, setValuation] = useState<ValuationResult>({
+  const [_valuation, setValuation] = useState<ValuationResult>({
     value: 0,
     range: { low: 0, high: 0 },
     components: { asset: 0, revenue: 0, earnings: 0, dcf: 0 },
@@ -355,15 +353,6 @@ const BusinessAssessment: React.FC = () => {
     } finally {
       setLoading(false)
     }
-  }
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat('en-ZA', {
-      style: 'currency',
-      currency: 'ZAR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(value)
   }
 
   return (
