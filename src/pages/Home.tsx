@@ -687,7 +687,7 @@ const Home: React.FC = () => {
                 <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e293b', mb: 1, transition: 'color 0.3s ease' }}>
                   Growth Plan
                 </Typography>
-                <Typography variant="h3" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
+                <Typography variant="h3" className="price-text" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
                   R1,000
                   <Typography component="span" variant="h6" className="price-text" sx={{ color: '#64748b', fontWeight: 500, transition: 'color 0.3s ease' }}>
                     /month
@@ -791,7 +791,7 @@ const Home: React.FC = () => {
                   <Typography variant="h5" sx={{ fontWeight: 700, color: '#1e293b', mb: 1, transition: 'color 0.3s ease' }}>
                     Pro Plan
                   </Typography>
-                  <Typography variant="h3" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
+                  <Typography variant="h3" className="price-text" sx={{ fontWeight: 700, color: '#22d3ee', mb: 3, transition: 'color 0.3s ease' }}>
                     R2,500
                     <Typography component="span" variant="h6" className="price-text" sx={{ color: '#64748b', fontWeight: 500, transition: 'color 0.3s ease' }}>
                       /month
