@@ -25,7 +25,7 @@ export const useContactForm = () => {
           input: formData,
         },
       });
-      return result.data?.submitContact;
+      return (result as any)?.data?.submitContact;
     } catch (err) {
       throw err;
     }
@@ -51,7 +51,7 @@ export const useNewsletter = () => {
           input: { email },
         },
       });
-      return result.data?.subscribeNewsletter;
+      return (result as any)?.data?.subscribeNewsletter;
     } catch (err) {
       throw err;
     }
